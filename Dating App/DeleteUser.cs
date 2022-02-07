@@ -8,5 +8,9 @@ namespace Dating_App
 {
     public class DeleteUser
     {
+        public void DeleteUserProfile()
+        {
+
+        }
     }
 }

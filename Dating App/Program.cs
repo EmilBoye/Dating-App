@@ -10,9 +10,8 @@ namespace Dating_App
     {
         static void Main(string[] args)
         {
-
-
-
+            var loginScreen = new LoginPage();
+            loginScreen.Login();
             Console.ReadKey();
         }
     }

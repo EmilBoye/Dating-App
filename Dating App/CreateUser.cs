@@ -11,11 +11,13 @@ namespace Dating_App
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string gender { get; set; }
+        public DateTime BirthDate { get; set; }
         public void CreateUserPage()
         {
             Console.Title = "Create Profile";
 
             Console.WriteLine("Velkommen til oprettelse af bruger.");
+
 
             Console.Write("");
         }
