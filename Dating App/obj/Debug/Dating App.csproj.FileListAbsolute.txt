@@ -1,0 +1,7 @@
+C:\Users\emib\source\repos\Dating App\Dating App\bin\Debug\Dating App.exe.config
+C:\Users\emib\source\repos\Dating App\Dating App\bin\Debug\Dating App.exe
+C:\Users\emib\source\repos\Dating App\Dating App\bin\Debug\Dating App.pdb
+C:\Users\emib\source\repos\Dating App\Dating App\obj\Debug\Dating App.csprojAssemblyReference.cache
+C:\Users\emib\source\repos\Dating App\Dating App\obj\Debug\Dating App.csproj.CoreCompileInputs.cache
+C:\Users\emib\source\repos\Dating App\Dating App\obj\Debug\Dating App.exe
+C:\Users\emib\source\repos\Dating App\Dating App\obj\Debug\Dating App.pdb
