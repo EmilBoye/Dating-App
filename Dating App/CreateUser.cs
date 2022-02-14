@@ -15,6 +15,8 @@ namespace Dating_App
         public string gender { get; set; }
         public int Age { get; set; }
         public DateTime BirthDate { get; set; }
+        public string personUserName { get; private set; }
+        public string personUserPassword { get; private set; }
 
         public void CreateUserPage()
         {
@@ -29,6 +31,7 @@ namespace Dating_App
 
         public void CreateUserInfo()
         {
+            var connection = new SqlConnection();
             Console.Write("Indtast fornavn: ");
             firstName = Console.ReadLine();
             
@@ -40,10 +43,12 @@ namespace Dating_App
             if (Age < 18)
             {
                 Console.WriteLine("Du er desværre for ung...");
+                return;
             }
-            else
+            else if (Age >= 18)
             {
                 Console.WriteLine("Alderen er accepteret.");
+                continue;
             }
 
             Console.Write("Indtast køn: ");
@@ -52,8 +57,11 @@ namespace Dating_App
             Console.Write("Indtast fødselsdag dd/mm/yyyy: ");
             BirthDate = DateTime.Parse(Console.ReadLine());
 
+            Console.Write("Indtast brugernavn: ");
+            personUserName = Console.ReadLine();
 
-
+            Console.Write("Indtast adgangskode: ");
+            personUserPassword = Console.ReadLine();
         }
     }
 }
