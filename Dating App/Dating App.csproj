@@ -48,6 +48,7 @@
     <Compile Include="LoginPage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlFunktioner.cs" />
     <Compile Include="StartPage.cs" />
   </ItemGroup>
   <ItemGroup>

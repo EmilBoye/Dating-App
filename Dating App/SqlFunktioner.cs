@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dating_App
 {
-    public class LoginPage
+    public class SqlFunktioner
     {
-        public void Login()
-        {
-            Console.WriteLine("hej");
-        }
     }
 }
