@@ -8,9 +8,13 @@ namespace Dating_App
 {
     public class LoginPage
     {
-        public void Login()
+        public void LogPage()
         {
-            Console.WriteLine("hej");
+            bool IsLoggedIn = true;
+            do
+            {
+
+            } while (IsLoggedIn = false);
         }
     }
 }

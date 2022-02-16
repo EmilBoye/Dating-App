@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClosePage.cs" />
     <Compile Include="CreateUser.cs" />
     <Compile Include="DeleteUser.cs" />
+    <Compile Include="HelpFunctions.cs" />
     <Compile Include="LoginPage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
