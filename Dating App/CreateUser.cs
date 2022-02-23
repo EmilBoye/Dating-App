@@ -10,14 +10,16 @@ namespace Dating_App
 {
     public class CreateUser
     {
-        public int ID { get; set; }
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public int Age { get; set; }
-        public string gender { get; set; }
-        public DateTime BirthDate { get; set; }
-        public string personUserName { get; private set; }
-        public string personUserPassword { get; private set; }
+        public static int PUAID;
+        public static string firstName { get; set; }
+        public static string lastName { get; set; }
+        public static int Age { get; set; }
+        public static string gender { get; set; }
+        public static DateTime BirthDate { get; set; }
+        public static string personUserName { get; private set; }
+        public static string personUserPsw { get; private set; }
+
+        public bool isCreated = true;
 
         public void CreateUserPage()
         {
@@ -32,9 +34,9 @@ namespace Dating_App
 
         public void CreateUserInfo()
         {
-            var connection = new SqlConnection();
+            /*var connection = new SqlConnection();
 
-            connection.Open();
+            connection.Open();*/
             Console.Write("Indtast fornavn: ");
             firstName = Console.ReadLine();
             
@@ -56,15 +58,30 @@ namespace Dating_App
             Console.Write("Indtast køn: ");
             gender = Console.ReadLine();
 
-            Console.Write("Indtast fødselsdag dd/mm/yyyy: ");
-            BirthDate = DateTime.Parse(Console.ReadLine());
+            isCreated = true;
+            do {
+                try
+                {
+                    Console.Write("Indtast fødselsdag dd/mm/yyyy: ");
+                    BirthDate = DateTime.Parse(Console.ReadLine());
+                    isCreated = false;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Fejl i fødselsdag",e.Message);
+                    isCreated = true;
+                }
+
+            } while (isCreated);
+
 
             Console.Write("Indtast brugernavn: ");
             personUserName = Console.ReadLine();
 
             Console.Write("Indtast adgangskode: ");
-            personUserPassword = Console.ReadLine();
+            personUserPsw = Console.ReadLine();
 
+            
             //string query = "INSERT INTO CreateProfile (ID,FirstName,LastName,Age,Gender,Birthdate,PersonUN,PersonPW) VALUES('" + firstName + "";
         }
     }

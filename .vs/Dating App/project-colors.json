@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "7cdac104-554e-41e3-b8ad-7e0f65408fc8": {
+      "ProjectGuid": "7cdac104-554e-41e3-b8ad-7e0f65408fc8",
+      "DisplayName": "Dating App",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

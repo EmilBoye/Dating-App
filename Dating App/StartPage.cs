@@ -15,7 +15,7 @@ namespace Dating_App
             Console.WriteLine("Velkommen til forsiden!\n");
             Console.WriteLine("Login (1)");
             Console.WriteLine("Opret (2)");
-            Console.WriteLine("Slet  (3)");
+            Console.WriteLine("Sluk programmet (3)");
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write("Dit valg: ");
 
@@ -25,7 +25,7 @@ namespace Dating_App
             {
                 Console.Clear();
                 var login = new LoginPage();
-                login.Login();
+                login.LogPage();
             }
             else if (choice == "2")
             {
@@ -35,9 +35,8 @@ namespace Dating_App
             }
             else if (choice == "3")
             {
-                Console.Clear();
-                var delete = new DeleteUser();
-                delete.DeleteUserProfile();
+                var cp = new ClosePage();
+                cp.CloseDown();
             }
             else
             {

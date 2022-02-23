@@ -11,47 +11,18 @@ namespace Dating_App
     {
         public void DeleteUserProfile()
         {
-            SqlConnection sqlConnection = new SqlConnection();
-            Console.Title = "Slet profil";
-            Console.WriteLine("Er du sikker på du vil slette din profil? (1) for ja og (2) for nej.");
-            try
+            var sqlcon = new SqlConnection(@"");
+            SqlCommand cmd;
+
+            if (sqlcon.State == System.Data.ConnectionState.Open)
             {
-                Console.Write("Valg: ");
-                var choice = Convert.ToInt32(Console.ReadLine());
-
-                if (choice == 1)
-                {
-                    Console.WriteLine("Profil er slettet");
-                }
-                else if (choice == 2)
-                {
-                    var startPage = new StartPage();
-                    startPage.Start_Page();
-                }
-                else
-                {
-                    Console.WriteLine("Det var ikke en valg mulighed");
-                    Console.Write("Valg: ");
-                    var choice1 = Convert.ToInt32(Console.ReadLine());
-
-                    if (choice1 == 1)
-                    {
-                        Console.WriteLine("Profil er slettet");
-                    }
-                    else if (choice1 == 2)
-                    {
-                        Console.Clear();
-                        var startPage = new StartPage();
-                        startPage.Start_Page();
-                    }
-
-                }
-
+                sqlcon.Close();
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+
+            cmd = new SqlCommand("DELETE FROM PersonUserAccount Where PUAID=@i", sqlcon);
+
+            cmd.Parameters.Add("@i",System.Data.SqlDbType.Int);
+
         }
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Dating_App
 {
-    class HelpFunctions
+    public class HelpFunctions
     {
-        public string InputChoice(string acceptdata)
+        public static string InputChoice(string acceptdata)
         {
             int xpos = Console.CursorLeft;
             int ypos = Console.CursorTop;

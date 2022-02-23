@@ -46,6 +46,7 @@
     <Compile Include="ClosePage.cs" />
     <Compile Include="CreateUser.cs" />
     <Compile Include="DeleteUser.cs" />
+    <Compile Include="EditUser.cs" />
     <Compile Include="HelpFunctions.cs" />
     <Compile Include="LoginPage.cs" />
     <Compile Include="Program.cs" />

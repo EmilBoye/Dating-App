@@ -15,7 +15,7 @@ namespace Dating_App
             do
             {
                 Console.Clear();
-                Console.WriteLine("Forsat god dag");
+                Console.WriteLine("Hav god dag");
             } while (Restart == true);
         }
     }
