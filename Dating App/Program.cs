@@ -12,7 +12,7 @@ namespace Dating_App
         {
             var startScreen = new StartPage();
             startScreen.Start_Page();
-            Console.ReadKey();
+            
         }
     }
 }
