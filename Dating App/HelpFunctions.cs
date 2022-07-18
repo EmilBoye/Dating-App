@@ -31,7 +31,5 @@ namespace Dating_App
             } while (choiceaccept == false);
             return input;
         }
-
-
     }
 }

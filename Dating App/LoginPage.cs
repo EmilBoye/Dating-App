@@ -11,13 +11,21 @@ namespace Dating_App
 {
     public class LoginPage
     {
+
+        private static int _puaId;
+
+        public static int puaId
+        {
+            get { return _puaId; }
+            set { _puaId = value; }
+        }
         public void LogPage()
         {
-            bool IsLoggedIn = false;
+            bool IsLoggedIn = true;
             do
             {
-               // SqlConnection sqlCon = new SqlConnection(sqlStuff.strConn);
                 Console.Clear();
+                SqlConnection sqlCon = new SqlConnection(SqlStuff.strConn);
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("Indtast dit username");
                 Console.Write("-> ");
@@ -28,55 +36,52 @@ namespace Dating_App
                 Console.Write("-> ");
                 string password = Console.ReadLine();
 
-               // Console.Beep();
-                //SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-M8A87VO;Initial Catalog=Tinder 3.0;Integrated Security=True");
 
-               // if (sqlCon.State == System.Data.ConnectionState.Closed)
-               //     sqlCon.Open();
-                //string query = $"SELECT PUAID FROM PersonUserAccont WHERE PersonUserName = '{ username}' AND PersonUserPassword = '{password}'";
+                if (sqlCon.State == System.Data.ConnectionState.Closed)
+                    sqlCon.Open();
+                string query = $"SELECT UserId FROM CreateProfile WHERE personusername = '{ username}' AND personuserpsw = '{password}'";
 
                 //Console.WriteLine($"Din streng: {query}");
-              //  SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+
                 //sqlCmd.CommandType = System.Data.CommandType.Text;
                 //sqlCmd.Parameters.AddWithValue("@Username", txtUsername.Text);
                 //sqlCmd.Parameters.AddWithValue("@Password", txtPassword.Password);
-                //int puaId = Convert.ToInt32(sqlCmd.ExecuteScalar());
-               // if (puaId != 0)
-               // {
-               //     Console.WriteLine("Du er logget ind");
 
-               ////     SqlFunktioner.PUAID = puaId;
+                puaId = Convert.ToInt32(sqlCmd.ExecuteScalar());
 
-               // //    UserMain.userMain();
-               // }
-                //else
-                //{
-                //    Console.WriteLine("Username or Password is incorrect! ");
-                //    Console.WriteLine("your idiot");
-                //    Console.WriteLine();
-                //    Console.Write("Vil du prøve igen? 👍 for ja eller Opret profil (C) ");
-                //    Console.Write("-> ");
-                //    string yesno = Console.ReadLine().ToUpper();
-                //    if (yesno == "Y")
-                //    {
-                //        var lp = new LoginPage();
-                //        lp.LogPage();
-                //    }
-                //    else if (yesno == "C")
-                //    {
-                //        var cup = new CreateUser();
-                //        cup.CreateUserPage();
-                //        Console.Clear();
-                //    }
-                //}
+                if (puaId != 0)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Du er nu logget ind som: {0}",username);
+
+                    UserMain.userMain();
+                }
+                else
+                {
+                    Console.WriteLine("Username or Password is incorrect! ");
+                    Console.WriteLine();
+                    Console.Write("Vil du prøve igen? (Y) for ja eller Opret profil (C) ");
+                    Console.Write("-> ");
+                    string yesno = Console.ReadLine().ToUpper();
+                    if (yesno == "Y")
+                    {
+                        var lp = new LoginPage();
+                        lp.LogPage();
+                    }
+                    else if (yesno == "C")
+                    {
+                        var cup = new CreateUser();
+                        cup.CreateUserPage();
+                    }
+                }
 
                 Console.ReadLine();
                 Console.Clear();
 
-              //  sqlCon.Close();
+                sqlCon.Close();
 
             } while (IsLoggedIn == false);
-
         }
     }
 }

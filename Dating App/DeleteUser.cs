@@ -11,17 +11,31 @@ namespace Dating_App
     {
         public void DeleteUserProfile()
         {
-            var sqlcon = new SqlConnection(@"");
-            SqlCommand cmd;
-
-            if (sqlcon.State == System.Data.ConnectionState.Open)
+            try
             {
+                var sqlcon = new SqlConnection(@"server=TEC-F-PC04\MSSQLSERVER3;Initial Catalog=Dating; User Id=sa;Password=Passw0rd;");
+                sqlcon.Open();
+                SqlCommand cmd;
+                Console.WriteLine(LoginPage.puaId);
+
+                cmd = new SqlCommand("DELETE FROM CreateProfile WHERE UserId="+ LoginPage.puaId, sqlcon);
+                //cmd.Parameters.Add("@UserId", System.Data.SqlDbType.Int).Value = CreateUser.UserId;
+                cmd.Parameters.AddWithValue("@UserId", LoginPage.puaId);
+                cmd.Connection = sqlcon;
+                cmd.ExecuteNonQuery();
+
+                if (sqlcon.State == System.Data.ConnectionState.Open)
+
+                {
+                    sqlcon.Close();
+                }
                 sqlcon.Close();
             }
-
-            cmd = new SqlCommand("DELETE FROM PersonUserAccount Where PUAID=@i", sqlcon);
-
-            cmd.Parameters.Add("@i",System.Data.SqlDbType.Int);
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
 
         }
     }

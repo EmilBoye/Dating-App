@@ -15,7 +15,6 @@ namespace Dating_App
         public static bool InsertNewUser()
         {
             bool isInserted = false;
-
             using (SqlConnection connection = new SqlConnection(strConn))
             {
                 string query = "INSERT INTO dbo.CreateProfile (firstname, lastname, age, gender, birthDate, personusername, personuserpsw) VALUES " +
@@ -34,7 +33,6 @@ namespace Dating_App
 
                     connection.Open();
                     int result = command.ExecuteNonQuery();
-
                     // Check Error
                     if (result < 0)
                         Console.WriteLine("Error inserting data into Database!");
@@ -42,10 +40,8 @@ namespace Dating_App
                     {
                         Console.WriteLine("Din profil er oprettet!");
                     }
-                    //connection.Close();
                 }
             }
-
             return isInserted;
         }
     }

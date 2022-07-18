@@ -12,6 +12,7 @@ namespace Dating_App
         {
             Console.Title = "Start";
 
+            Console.Clear();
             Console.WriteLine("Velkommen til forsiden!\n");
             Console.WriteLine("Login (1)");
             Console.WriteLine("Opret (2)");
@@ -19,21 +20,20 @@ namespace Dating_App
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write("Dit valg: ");
 
-            string choice = Console.ReadLine();
+            int yourChoice = Convert.ToInt32(HelpFunctions.InputChoice("123"));
 
-            if (choice == "1")
+            if (yourChoice == 1)
             {
-                Console.Clear();
                 var login = new LoginPage();
                 login.LogPage();
             }
-            else if (choice == "2")
+            else if (yourChoice == 2)
             {
-                Console.Clear();
+                
                 var create = new CreateUser();
                 create.CreateUserPage();
             }
-            else if (choice == "3")
+            else if (yourChoice == 3)
             {
                 var cp = new ClosePage();
                 cp.CloseDown();

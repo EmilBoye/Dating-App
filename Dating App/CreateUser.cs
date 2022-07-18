@@ -10,7 +10,6 @@ namespace Dating_App
 {
     public class CreateUser
     {
-        public static int UserId { get; set; }
         public static string firstName { get; set; }
         public static string lastName { get; set; }
         public static int Age { get; set; }
@@ -25,16 +24,17 @@ namespace Dating_App
         public void CreateUserPage()
         {
             Console.Title = "Create Profile";
+            Console.Clear();
+            Console.ResetColor();
 
             Console.WriteLine("Velkommen til oprettelse af bruger.\n");
-            Console.ResetColor();
 
             var info = new CreateUser();
             info.CreateUserInfo();
         }
-
         public void CreateUserInfo()
         {
+            Console.Clear();
             Console.Write("Indtast fornavn: ");
             firstName = Console.ReadLine();
             
@@ -79,6 +79,7 @@ namespace Dating_App
                 {
                     Console.Write("Indtast fødselsdag dd/mm/yyyy: ");
                     BirthDate = DateTime.Parse(Console.ReadLine());
+                    
                     isCreated = false;
                 }
                 catch (Exception e)
@@ -103,7 +104,10 @@ namespace Dating_App
 
                     if (personUserPsw.Length >= 6)
                     {
+                        Console.ResetColor();
                         Console.WriteLine("Det er sikkert nok");
+                        Console.WriteLine();
+                        
                         ToShort = false;
                     }
                     else
@@ -124,12 +128,19 @@ namespace Dating_App
             } while (ToShort);
 
             SqlStuff.InsertNewUser();
-
-            Console.WriteLine();
-            Console.Write("Tryk Enter for at forsætte: ");
-
             var la = new LoginPage();
             la.LogPage();
         }
+        //private int GetAge(DateTime yearsold)
+        //{
+        //    int age = 0;
+        //    age = DateTime.Now.Subtract(yearsold).Days;
+        //    age = age / 365;
+        //    return age;
+        //}
+        //public int GetAge()
+        //{
+        //    return GetAge(DateTime.Now);
+        //}
     }
 }
