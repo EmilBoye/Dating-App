@@ -12,6 +12,8 @@ namespace Dating_App
     public class LoginPage
     {
 
+        // Den private int giver programmet en mulighed,
+        // for at kunne opdaterer ved en pludselig ændring.
         private static int _puaId;
 
         public static int puaId
@@ -43,10 +45,6 @@ namespace Dating_App
 
                 //Console.WriteLine($"Din streng: {query}");
                 SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-
-                //sqlCmd.CommandType = System.Data.CommandType.Text;
-                //sqlCmd.Parameters.AddWithValue("@Username", txtUsername.Text);
-                //sqlCmd.Parameters.AddWithValue("@Password", txtPassword.Password);
 
                 puaId = Convert.ToInt32(sqlCmd.ExecuteScalar());
 
@@ -80,7 +78,7 @@ namespace Dating_App
                 Console.Clear();
 
                 sqlCon.Close();
-
+                
             } while (IsLoggedIn == false);
         }
     }

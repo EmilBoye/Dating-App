@@ -29,8 +29,7 @@ namespace Dating_App
 
             Console.WriteLine("Velkommen til oprettelse af bruger.\n");
 
-            var info = new CreateUser();
-            info.CreateUserInfo();
+            CreateUserInfo();
         }
         public void CreateUserInfo()
         {

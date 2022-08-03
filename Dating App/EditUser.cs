@@ -27,19 +27,14 @@ namespace Dating_App
             if (choice == 1)
             {
                 Console.ResetColor();
-                var EU = new EditUser();
-                EU.Changes();
+                var editUser = new EditUser();
+                editUser.EditUserChanges();
             }
             else if (choice == 2)
             {
                 var DelUser = new DeleteUser();
                 DelUser.DeleteUserProfile();
             }
-        }
-        public void Changes()
-        {
-            var userChanges = new EditUser();
-            userChanges.EditUserChanges();
         }
         public void EditUserChanges()
         {
